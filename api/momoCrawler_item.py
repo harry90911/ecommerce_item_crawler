@@ -1,4 +1,3 @@
-# %%
 import requests
 import json
 import pandas as pd
@@ -14,7 +13,6 @@ logger = None
 end_point = 'hide'
 generator = ProxyGenerator(end_point)
 
-# %%
 def crawl_page(brand, generator : ProxyGenerator, brand_list : list, recrawl_list : list, pBar : tqdm, output_path: str, today: str):
 
     listLock = Lock()

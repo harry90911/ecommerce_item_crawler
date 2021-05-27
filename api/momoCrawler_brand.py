@@ -1,11 +1,10 @@
 import requests
 import json
-from api.api_helpers.momoCrawler_helpers import __generate_data, __generate_header
-from helpers.ProxyGenerator import ProxyGenerator
-from helpers.Logger import create_logger
-from tqdm import tqdm
-from threading import Lock
 import pandas as pd
+from helpers.ProxyGenerator import ProxyGenerator
+from threading import Lock
+from helpers.Logger import create_logger
+from api.api_helpers.momoCrawler_helpers import __generate_data, __generate_header
 import os
 
 logger = None

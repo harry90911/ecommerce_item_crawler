@@ -1,12 +1,12 @@
 from bs4 import BeautifulSoup
-import os
-import pandas as pd
 import requests
+import json
+import pandas as pd
 from helpers.ProxyGenerator import ProxyGenerator
+from threading import Lock
 from helpers.Logger import create_logger
 from api.api_helpers.momoCrawler_helpers import __generate_data, __generate_header
-import json
-from threading import Lock
+import os
 
 logger = None
 end_point = 'hide'
@@ -64,7 +64,7 @@ def crawl_category(cat_dict: dict, generator: ProxyGenerator, crawl_list: list, 
 def __content_crawler(output_path: str, today: str, log_dir: str):
 
     global logger
-    logger = Logger.create_logger('momo content list crawler', log_dir=log_dir)
+    logger = create_logger('momo content list crawler', log_dir=log_dir)
     logger.info('Initializing momo crawler content list')
     proxy = generator.GetProxy()
     cat_list = [{'cat_1_name':'3C','index':0},

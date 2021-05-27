@@ -1,4 +1,3 @@
-# %%
 import requests
 import json
 from api.api_helpers.momoCrawler_helpers import __generate_data, __generate_header
@@ -83,7 +82,7 @@ def __api_brand_crawler(output_path: str, today: str, log_dir: str):
     global logger
     logger = create_logger('momo api brand crawler', log_dir=log_dir)
 
-    contents = pd.read_csv(f'/home/hank/airflow/dags/raw_data/MomoCrawler_content_lst/MomoCrawler_content_lst_{today}.csv')
+    contents = pd.read_csv(f'{output_path}/MomoCrawler_content_lst_{today}.csv')
     contents = contents[['cat_l1_name', 'cat_l2_name', 'cat_l3_name', 'l3_link', 'id', 'content_name']]
     contents = [c for c in contents.drop_duplicates().itertuples()]
 
